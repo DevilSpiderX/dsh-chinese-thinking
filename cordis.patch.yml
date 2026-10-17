@@ -1,0 +1,11 @@
+# chinese-thinking 组合包 patch 层 —— 把本插件挂载进 profile 树。
+# 用户可在此调整 config（替换整份 config，保留想留下的字段）：
+#   enabled : false 可临时关闭
+#   order   : 系统提示词段落排序（默认 10，位于部署人设前缀之后）
+#   text    : 覆盖默认的中文思考指令全文
+- insert:
+    - id: dsh-chinese-thinking
+      name: '@devilspiderx/dsh-chinese-thinking'
+      config:
+        enabled: true
+        order: 10

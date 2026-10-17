@@ -1,0 +1,24 @@
+{
+  "name": "@devilspiderx/dsh-chinese-thinking",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "files": [
+    "index.js",
+    "cordis.patch.yml",
+    "locale",
+    "README.md"
+  ],
+  "description": "Force the model to think (reasoning) in Chinese for every session in this profile. 强制模型思考（推理）过程使用中文。",
+  "license": "MIT"
+}

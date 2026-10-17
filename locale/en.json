@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Chinese Thinking",
+    "description": "Force the model to always think (internal reasoning) in Chinese; the answer language still follows the user."
+  }
+}
