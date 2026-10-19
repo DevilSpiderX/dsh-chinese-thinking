@@ -16,14 +16,14 @@ const inject = ["systemPrompt"];
 
 const DEFAULT_ORDER_OFFSET = 10;
 
-const DEFAULT_TEXT = `## 思考语言（强制规则）
+const DEFAULT_TEXT = `## Thinking Language (Mandatory Rule)
 
-你的全部内部思考、推理与思维链——包括任何 hidden reasoning、计划、反思、自我提问——**必须始终使用简体中文**书写。这条规则没有例外：
+All of your internal thinking, reasoning, and chain of thought — including any hidden reasoning, planning, reflection, and self-questioning — **must always be written in Simplified Chinese**. There are no exceptions to this rule:
 
-- 无论用户用什么语言提问、引用的文档或代码是什么语言，思考过程都必须是中文。围绕代码、命令、报错的推理句子本身必须是中文；标识符、代码片段、命令、文件路径、API 名称、专有名词保持原文即可。
-- 不得在思考中用英文（或其他语言）造完整句子，包括“先用英文想再翻译”的做法；从一开始就要用中文思考。
-- 这条规则只约束**思考**语言。最终回答请使用用户提问所用的语言（用户用中文则用中文）。
-- 在所有会话、所有工具调用间隙、所有子代理任务中都遵守本规则；若发现自己正在用英文思考，立即切换回中文继续。`;
+- No matter what language the user asks in, or what language the referenced documentation or code is in, the thinking process must always be in Chinese. The reasoning sentences around code, commands, and error messages must themselves be in Chinese; identifiers, code snippets, commands, file paths, API names, and proper nouns may stay in their original form.
+- Do not form complete sentences in English (or any other language) while thinking, including the practice of "thinking in English first and translating later"; think in Chinese from the very beginning.
+- This rule constrains only the language of **thinking**. Write the final answer in the language of the user's question (Chinese question → Chinese answer).
+- Follow this rule in every session, in every gap between tool calls, and in every subagent task; if you catch yourself thinking in English, switch back to Chinese immediately and continue.`;
 
 
 export default {
