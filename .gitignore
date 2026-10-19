@@ -1,17 +1,9 @@
-HELP.md
-target/
-.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
-
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+### 依赖与构建产物 ###
+node_modules/
+*.tsbuildinfo
+# dist/ 是 bundle 安装所需的编译产物，默认保留提交；
+# 如需改为构建时生成，取消下一行注释并确保安装前执行 pnpm build
+# dist/
 
 ### IntelliJ IDEA ###
 .idea
@@ -19,23 +11,11 @@ target/
 *.iml
 *.ipr
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-
 ### VS Code ###
 .vscode/
 
 ### 根目录下的不上传git ###
-/application.yml
-*/application.yml
-*/application-local.yml
 /.claude/
 /.codex/
 /.run/
+/dist/

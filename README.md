@@ -13,9 +13,25 @@
 
 | 文件 | 职责 |
 |---|---|
-| `index.js` | Host 插件入口（`apply(ctx, config)`） |
+| `src/index.ts` | Host 插件入口源码（对象形式 `apply(ctx, config)`） |
+| `dist/index.min.js` | esbuild 压缩产物，`package.json` 的 `exports` 指向这里 |
+| `dist/index.d.ts` | `tsc` 生成的类型声明 |
+| `tsconfig.json` | TypeScript 编译配置（`src` → `dist`，strict 模式） |
 | `cordis.patch.yml` | 把插件行 `dsh-chinese-thinking` 插入 profile 配置树 |
 | `package.json` | 组合包清单（`dsh.bundle.patch`） |
+
+## 开发
+
+本项目为 TypeScript 工程，源码在 `src/`，编译输出到 `dist/`：
+
+```
+pnpm install        # 安装 typescript、esbuild 等开发依赖
+pnpm run build      # tsc 出类型声明 + esbuild 压缩出 dist/index.min.js（安装 bundle 前必须先执行）
+pnpm run typecheck  # 只做类型检查，不输出
+pnpm run watch      # 监听类型声明，改动后自动重新生成
+```
+
+修改 `src/index.ts` 后请重新执行 `pnpm run build`，bundle 运行时加载的是 `dist/index.min.js`。
 
 ## 配置
 

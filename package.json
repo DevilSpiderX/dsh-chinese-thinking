@@ -3,10 +3,20 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "main": "./dist/index.min.js",
+  "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./index.js",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.min.js"
+    },
     "./package.json": "./package.json",
     "./locale/*.json": "./locale/*.json"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && esbuild src/index.ts --minify --format=esm --platform=node --target=es2022 --sourcemap --outfile=dist/index.min.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "watch": "tsc -p tsconfig.json --watch"
   },
   "dsh": {
     "bundle": {
@@ -14,11 +24,21 @@
     }
   },
   "files": [
-    "index.js",
+    "dist",
     "cordis.patch.yml",
     "locale",
     "README.md"
   ],
   "description": "Force the model to think (reasoning) in Chinese for every session in this profile. 强制模型思考（推理）过程使用中文。",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@deepseek-ai/cordis": "^4.0.5",
+    "@deepseek-ai/dsh-system-prompt": "0.2.1-rc.2",
+    "@types/node": "^26.6.5",
+    "esbuild": "^0.28.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "^3.18.5"
+  }
 }
