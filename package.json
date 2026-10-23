@@ -1,21 +1,21 @@
 {
   "name": "@devilspiderx/dsh-chinese-thinking",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "type": "module",
-  "main": "./dist/index.min.js",
-  "types": "./dist/index.d.ts",
+  "main": "./lib/index.min.js",
+  "types": "./lib/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.min.js"
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.min.js"
     },
     "./package.json": "./package.json",
     "./locale/*.json": "./locale/*.json",
     "./icon": "./icon.svg"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.json && esbuild src/index.ts --minify --format=esm --platform=node --target=es2022 --sourcemap --outfile=dist/index.min.js",
+    "build": "tsc -p tsconfig.json && vite build -c vite.host.config.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "watch": "tsc -p tsconfig.json --watch"
   },
@@ -25,7 +25,7 @@
     }
   },
   "files": [
-    "dist",
+    "lib",
     "cordis.patch.yml",
     "locale",
     "icon.svg",
@@ -38,8 +38,8 @@
     "@deepseek-ai/dsh-llm": "0.2.1-rc.2",
     "@deepseek-ai/dsh-system-prompt": "0.2.1-rc.2",
     "@types/node": "^26.6.5",
-    "esbuild": "^0.28.2",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vite": "^8.3.5"
   },
   "dependencies": {
     "@deepseek-ai/schemastery": "^3.18.5"

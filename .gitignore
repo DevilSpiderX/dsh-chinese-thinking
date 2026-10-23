@@ -1,9 +1,9 @@
 ### 依赖与构建产物 ###
 node_modules/
 *.tsbuildinfo
-# dist/ 是 bundle 安装所需的编译产物，默认保留提交；
+# lib/ 是 bundle 安装所需的编译产物，默认保留提交；
 # 如需改为构建时生成，取消下一行注释并确保安装前执行 pnpm build
-# dist/
+# lib/
 
 ### IntelliJ IDEA ###
 .idea

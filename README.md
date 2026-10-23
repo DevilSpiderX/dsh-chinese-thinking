@@ -97,26 +97,27 @@
 | 文件 | 职责 |
 |---|---|
 | `src/index.ts` | Host 插件入口源码（对象形式 `apply(ctx, config)`） |
-| `dist/index.min.js` | esbuild 压缩产物，`package.json` 的 `exports` 指向这里 |
-| `dist/index.d.ts` | `tsc` 生成的类型声明 |
+| `lib/index.min.js` | vite（oxc minify）压缩产物，`package.json` 的 `exports` 指向这里 |
+| `lib/index.d.ts` | `tsc` 生成的类型声明 |
 | `icon.svg` | 插件图标（原创） |
 | `locale/{en,zh}.json` | Plugin Manager 展示的标题与描述 |
-| `tsconfig.json` | TypeScript 编译配置（`src` → `dist`，strict 模式） |
+| `tsconfig.json` | TypeScript 编译配置（`src` → `lib`，strict 模式） |
+| `vite.host.config.mjs` | Vite 构建配置（host 侧单文件 ESM 产物，external 宿主依赖） |
 | `cordis.patch.yml` | 把插件行 `dsh-chinese-thinking` 插入 profile 配置树 |
 | `package.json` | 组合包清单（`dsh.bundle.patch`） |
 
 ## 开发
 
-本项目为 TypeScript 工程，源码在 `src/`，编译输出到 `dist/`：
+本项目为 TypeScript 工程，源码在 `src/`，编译输出到 `lib/`：
 
 ```
-pnpm install        # 安装 typescript、esbuild 等开发依赖
-pnpm run build      # tsc 出类型声明 + esbuild 压缩出 dist/index.min.js（安装 bundle 前必须先执行）
+pnpm install        # 安装 typescript、vite 等开发依赖
+pnpm run build      # tsc 出类型声明 + vite 压缩出 lib/index.min.js（安装 bundle 前必须先执行）
 pnpm run typecheck  # 只做类型检查，不输出
 pnpm run watch      # 监听类型声明，改动后自动重新生成
 ```
 
-修改 `src/index.ts` 后请重新执行 `pnpm run build`，bundle 运行时加载的是 `dist/index.min.js`。
+修改 `src/index.ts` 后请重新执行 `pnpm run build`，bundle 运行时加载的是 `lib/index.min.js`。
 `@deepseek-ai/dsh-llm` 仅为类型依赖（`import type`，构建时擦除），运行时不需要。
 
 调试翻译时可设置 `CT_DEBUG=1`，日志会输出每次翻译的字符数、输入/输出 token、缓存命中与回退原因。
