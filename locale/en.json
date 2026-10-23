@@ -1,6 +1,6 @@
 {
   "meta": {
     "title": "Chinese Thinking",
-    "description": "Always show the model's thinking (reasoning) in Chinese: a prompt nudge plus streaming translation of reasoning chunks, for every session, model, window, and workspace."
+    "description": "Zero extra model requests by default: an end-of-prompt rule plus automatic reinforcement so the model thinks in Chinese; optional streaming translation fallback."
   }
 }

@@ -1,27 +1,33 @@
 # chinese-thinking 组合包 patch 层 —— 把本插件挂载进 profile 树。
 # 用户可在此调整 config（替换整份 config，保留想留下的字段）：
 #   enabled            : false 可临时关闭整个插件
-#   order              : 系统提示词段落排序（默认 10，位于部署人设前缀之后）
+#   order              : 系统提示词段落排序（默认 10250，位于系统提示词末尾）
 #   text               : 覆盖默认的中文思考指令全文
 #   promptEnabled      : 是否保留提示词劝导段（默认 true）
-#   translate          : 是否启用思考流中文翻译（默认 true，核心机制）
+#   translate          : 是否额外请求模型做翻译（默认 false：零额外请求）
 #   translationProvider: 翻译用 provider，留空 = 跟随被翻译的请求
-#   translationModel   : 翻译用 model，留空 = 跟随被翻译的请求
+#   translationModel   : 翻译用 model，建议指定廉价非思考模型
 #   minChars           : 触发翻译的最小缓冲字符数（默认 24）
 #   maxChars           : 单个翻译片段最大字符数（默认 480）
-#   skipChineseRatio   : 汉字占比达到该值即跳过翻译（默认 0.5）
+#   batchChars         : 连续外语片段合批阈值（默认 400，0 = 逐片翻译）
+#   skipChineseRatio   : 汉字占比阈值（默认 0.5）
 #   timeoutMs          : 单次翻译超时（默认 20000）
+#   cacheSize          : 翻译结果 LRU 缓存条数（默认 256，0 = 关闭）
 - insert:
     - id: dsh-chinese-thinking
       name: '@devilspiderx/dsh-chinese-thinking'
       config:
         enabled: true
-        order: 10
         promptEnabled: true
-        translate: true
+        translate: false
+        # order: 10250
+        # text: |
+        #   ...
         # translationProvider: ''
         # translationModel: ''
         # minChars: 24
         # maxChars: 480
+        # batchChars: 400
         # skipChineseRatio: 0.5
         # timeoutMs: 20000
+        # cacheSize: 256
