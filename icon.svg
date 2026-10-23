@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="中文思考">
+  <defs>
+    <linearGradient id="ct-badge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#818cf8"/>
+      <stop offset="1" stop-color="#4f46e5"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="16" fill="url(#ct-badge)"/>
+  <circle cx="46" cy="18" r="3" fill="#e0e7ff"/>
+  <circle cx="54" cy="26" r="2.2" fill="#c7d2fe"/>
+  <circle cx="38" cy="13" r="1.8" fill="#e0e7ff"/>
+  <text x="32" y="43" text-anchor="middle" font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Noto Sans CJK SC',sans-serif" font-size="26" font-weight="700" fill="#ffffff">中</text>
+</svg>
