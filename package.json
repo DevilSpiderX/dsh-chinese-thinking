@@ -11,7 +11,8 @@
       "default": "./dist/index.min.js"
     },
     "./package.json": "./package.json",
-    "./locale/*.json": "./locale/*.json"
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json && esbuild src/index.ts --minify --format=esm --platform=node --target=es2022 --sourcemap --outfile=dist/index.min.js",
@@ -27,12 +28,14 @@
     "dist",
     "cordis.patch.yml",
     "locale",
+    "icon.svg",
     "README.md"
   ],
-  "description": "Force the model to think (reasoning) in Chinese for every session in this profile. 强制模型思考（推理）过程使用中文。",
+  "description": "Show every model's thinking (reasoning) in Chinese in every session: a prompt nudge plus a streaming translation of the reasoning chunks. 任意会话/模型/窗口/工作区下，模型思考过程始终以中文呈现。",
   "license": "MIT",
   "devDependencies": {
     "@deepseek-ai/cordis": "^4.0.5",
+    "@deepseek-ai/dsh-llm": "0.2.1-rc.2",
     "@deepseek-ai/dsh-system-prompt": "0.2.1-rc.2",
     "@types/node": "^26.6.5",
     "esbuild": "^0.28.2",
